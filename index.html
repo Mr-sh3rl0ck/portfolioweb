@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axel Castillo — Portafolio</title>
+    <meta
+      name="description"
+      content="Ingeniero de software con foco en Web AppSec y pentesting. Proyectos, herramientas de red y blog técnico."
+    />
+    <link rel="canonical" href="/" />
+    <meta name="author" content="Axel Castillo" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Axel Castillo — Portafolio" />
+    <meta property="og:description" content="Ingeniero de software | Web AppSec y pentesting | Proyectos y blog." />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/vite.svg" />
+    <meta property="og:site_name" content="Axel Castillo" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Axel Castillo — Portafolio" />
+    <meta name="twitter:description" content="Ingeniero de software | Web AppSec y pentesting | Proyectos y blog." />
+    <meta name="twitter:image" content="/vite.svg" />
+
+    <!-- Tema: aplica antes del primer render para evitar FOUC -->
+    <script>
+      (() => {
+        try {
+          const ls = localStorage.getItem('theme');
+          const mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const dark = ls ? ls === 'dark' : mql;
+          const root = document.documentElement;
+          root.classList.toggle('dark', dark);
+        } catch {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a href="#intro" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-black text-white px-3 py-2 rounded">Saltar al contenido</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
