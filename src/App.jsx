@@ -572,6 +572,7 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-4">
+              {/*
               <button
                 onClick={toggleTheme}
                 className="group p-3 rounded-lg border border-border hover:border-muted-foreground/50 transition-all duration-300"
@@ -591,7 +592,7 @@ export default function App() {
                   </svg>
                 ) : (
                   <svg
-                    className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                    className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duración-300"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -599,6 +600,7 @@ export default function App() {
                   </svg>
                 )}
               </button>
+              */}
             </div>
           </div>
         </footer>
