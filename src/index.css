@@ -95,7 +95,7 @@ body {
   transition: opacity .35s ease;
 }
 
-.card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.15); border-color: rgba(var(--accent-2), .35); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.15); border-color: rgba(var(--accent-2), .35) !important; }
 .card:hover::before { opacity: 1; }
 
 .glass { background: rgba(var(--color-background), 0.6); backdrop-filter: blur(10px); }

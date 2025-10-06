@@ -3,6 +3,7 @@ import { jobs } from "./data/jobs"
 import { projects } from "./data/projects"
 import { posts } from "./data/posts"
 import { socials } from "./data/socials"
+import ProjectCard from "./components/ProjectCard"
 
 export default function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -331,7 +332,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="lg:col-span-4 flex flex-wrap gap-2 items-start lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-2 lg:justify-items-end lg:text-right">
+                  <div className="flex flex-wrap gap-2 items-start lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-2 lg:justify-items-end lg:text-right lg:col-span-4">
                     {job.tech.map((tech) => (
                       <span
                         key={tech}
@@ -359,84 +360,14 @@ export default function App() {
               <div className="text-sm text-muted-foreground font-mono">Seleccionados</div>
             </div>
 
-            <div className="space-y-12">
-              {projects.map((proj, index) => (
-                <article
+            {/* Grid responsive: 1 columna en móvil, 2 en tablet, 3 en desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {projects.map((proj) => (
+                <ProjectCard
                   key={proj.title}
-                  className="group card glass shadow-glow p-8 transition-all duration-500"
-                >
-                  <div className="space-y-4 md:flex md:items-start md:gap-6">
-                    {/* Columna izquierda: texto */}
-                    <div className="flex-1 space-y-3">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                          {proj.title}
-                        </h3>
-                        {proj.source && (
-                          <span className="text-[10px] px-2 py-0.5 rounded-full border border-border text-muted-foreground group-hover:border-foreground/40 transition-colors duration-300">
-                            {proj.source}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-muted-foreground leading-relaxed">{proj.description}</p>
-                      {(() => {
-                        const { shown, hiddenCount } = filterRelevantTech(proj.tech || [])
-                        return (
-                          <div className="flex flex-wrap items-center gap-2">
-                            {shown.map((t) => (
-                              <span
-                                key={t}
-                                className="px-2 py-1 text-xs text-muted-foreground rounded border border-border hover:text-foreground hover:border-foreground/40 transition-colors duration-300"
-                              >
-                                {t}
-                              </span>
-                            ))}
-                            {hiddenCount > 0 && (
-                              <span className="px-2 py-1 text-[10px] rounded border border-border text-muted-foreground">
-                                +{hiddenCount} más
-                              </span>
-                            )}
-                          </div>
-                        )
-                      })()}
-
-                      {(proj.href || proj.repo) && (
-                        <div className="pt-2 flex items-center gap-4 text-sm">
-                          {proj.href && proj.href !== "#" && (
-                            <a
-                              href={proj.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors duration-300"
-                              aria-label={`Abrir demo de ${proj.title}`}
-                            >
-                              <span>Demo</span>
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                              </svg>
-                            </a>
-                          )}
-                          {proj.repo && proj.repo !== "#" && (
-                            <a
-                              href={proj.repo}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-foreground hover:text-muted-foreground transition-colors duration-300"
-                              aria-label={`Abrir repositorio de ${proj.title}`}
-                            >
-                              <span>Repo</span>
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                              </svg>
-                            </a>
-                          )}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* (removida) Columna derecha: miniatura */}
-                  </div>
-                </article>
+                  project={proj}
+                  filterRelevantTech={filterRelevantTech}
+                />
               ))}
             </div>
           </div>

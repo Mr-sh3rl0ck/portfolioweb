@@ -1,6 +1,15 @@
 export const jobs = [
   {
     year: "2025",
+    role: "Data Analyst",
+    company: "EZI",
+    description:
+      "Apoyo en el análisis y visualización de datos para la toma de decisiones, desarrollando dashboards interactivos en Power BI, consultas SQL para extracción de información y scripts en Python para automatizar procesos.",
+    tech: ["Power BI", "SQL", "Python"],
+    type: "Práctica",
+  },
+  {
+    year: "2025",
     role: "Full Stack Developer",
     company: "Universidad UTSC",
     description:
