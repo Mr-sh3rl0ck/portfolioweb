@@ -6,16 +6,6 @@ import { socials } from "./data/socials"
 import ProjectCard from "./components/ProjectCard"
 
 export default function App() {
-  const [isDark, setIsDark] = useState(() => {
-    try {
-      const ls = localStorage.getItem("theme")
-      if (ls === "dark") return true
-      if (ls === "light") return false
-      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-    } catch {
-      return true
-    }
-  })
   const [activeSection, setActiveSection] = useState("intro")
   const sectionsRef = useRef([])
   const animatedOnce = useRef(new Set())
@@ -24,17 +14,9 @@ export default function App() {
   // (removido) Modal de imagen de proyecto
   // Parallax
   const prefersReducedRef = useRef(false)
-  const rafId = useRef(null)
   const heroNameRef = useRef(null)
   const heroStatusRef = useRef(null)
   const heroFocusRef = useRef(null)
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
-    try {
-      localStorage.setItem("theme", isDark ? "dark" : "light")
-    } catch {}
-  }, [isDark])
 
   // Ensure page starts at top on hard refresh (browser may try to restore scroll)
   useEffect(() => {
@@ -141,10 +123,6 @@ export default function App() {
     }
   }, [])
 
-  const toggleTheme = () => {
-    setIsDark(!isDark)
-  }
-
   // Utils: filtrar techs relevantes y limitar cantidad mostrada
   const normalizeTech = (s) => (s || "")
     .toString()
@@ -235,7 +213,7 @@ export default function App() {
           >
           <div className="grid lg:grid-cols-5 gap-16 w-full">
             <div className="lg:col-span-3 space-y-8">
-              <div className="space-y-2">
+              <div className="space-y-2 mt-5">
                 <div className="text-sm text-muted-foreground font-mono tracking-wider">
                   PORTFOLIO / 2025
                 </div>
