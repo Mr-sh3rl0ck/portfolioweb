@@ -29,11 +29,11 @@ import Votar from "../assets/votacion/Votar.png"
 import Admin1 from "../assets/votacion/admin1.png"
 import Admin2 from "../assets/votacion/admin2.png"
 
-import LoginChat from "../assets/chatRealtime/Login.png"
-import AddFriend from "../assets/chatRealtime/AddFriend.png"
-import AddFriend2 from "../assets/chatRealtime/addFriend2.png"
-import Chat1 from "../assets/chatRealtime/Chat1.png"
-import Emojis from "../assets/chatRealtime/emojis.png"
+import LoginChat from "../assets/chatRealTime/Login.png"
+import AddFriend from "../assets/chatRealTime/AddFriend.png"
+import AddFriend2 from "../assets/chatRealTime/addFriend2.png"
+import Chat1 from "../assets/chatRealTime/Chat1.png"
+import Emojis from "../assets/chatRealTime/emojis.png"
 
 import homeBlog from "../assets/blog/home.png"
 
